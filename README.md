@@ -1,31 +1,27 @@
-# CoCalc GPU Atlas
+# CoCalc ATLAS
 
-This is a fork from emilioj's CuCalc, which is itself a fork from the original ktaletsk's CuCalc, but emilioj's was more up to date.
-On this image I intend to add some dependencies to work with CERN/ATLAS data.
+This is the repository for the `gabrielmilan/cocalc-atlas` Docker image.
 
-The original description from ktaletsk's repository is below:
+It consists on the default `sagemathinc/cocalc` image with a custom Python3 kernel added. This custom kernel adds:
 
-This is Docker container build on top of CoCalc image (https://github.com/sagemathinc/cocalc-docker) to add support of CUDA for GPU programming. My use is running it on my dedicated desktop computer with GPU and access from laptop anywhere.
+* PyROOT (v6-16-00)
+* Prometheus Framework
+* Saphyra Framework
+* OTools
+* Tensorflow (CPU only)
 
-Also added CUDNN and Tensorflow required stuff.
+among other stuff.
 
-Prerequisites:
-+ Docker
-+ nvidia-docker (https://github.com/NVIDIA/nvidia-docker).
+## Usage
 
-To build image, type
+* Build it:
 
-    sudo make build
-    
-To run container, type
+```
+./build.sh
+```
 
-    sudo make run
-    
-To stop container, type
+* Run!
 
-    sudo make stop
-    
-To start again, type
-
-    sudo make start
-    
+```
+docker run -it -d --name cocalc-atlas -v <cocalc-data-path>:/projects -p <expose-port>:443 gabrielmilan/cocalc-atlas
+```
