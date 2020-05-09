@@ -1,0 +1,14 @@
+{
+ "display_name": "ATLAS Custom Python3 Kernel",
+ "argv": [
+  "/usr/env/atlas-env/atlas_env/bin/python",
+  "-m",
+  "ipykernel",
+  "--matplotlib=inline",
+  "-c",
+  "%config InlineBackend.figure_formats = set(['retina'])\nimport matplotlib; matplotlib.rcParams['figure.figsize'] = (12, 7)",
+  "-f",
+  "{connection_file}"
+ ],
+ "language": "python"
+}
